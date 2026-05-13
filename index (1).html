@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoachDraft - High School Coaching Jobs in NJ & NY | Coming Soon</title>
+<meta name="description" content="CoachDraft connects high school coaches with schools hiring across New Jersey and New York. Join the waitlist for early access.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', 'Segoe UI', sans-serif; background: #fff; color: #1e293b; line-height: 1.6; }
+.impact { font-family: 'Impact', 'Arial Black', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; }
+a { color: #1a4fd6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* Top Nav */
+.nav { background: linear-gradient(135deg, #0a1628, #0d2040); padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 70px; border-bottom: 3px solid #c9960c; position: sticky; top: 0; z-index: 50; }
+.nav-brand { display: flex; align-items: center; gap: 12px; }
+.nav-brand-text { color: #fff; }
+.nav-brand-name { font-family: Impact, Arial Black, sans-serif; font-size: 22px; letter-spacing: 0.06em; }
+.nav-brand-name span { color: #f5c842; }
+.nav-tagline { font-size: 9px; font-weight: 600; color: #f5c842; letter-spacing: 0.16em; opacity: 0.85; }
+.nav-links { display: flex; gap: 4px; align-items: center; }
+.nav-links a { color: #94a3b8; padding: 8px 14px; font-size: 13px; font-weight: 600; }
+.nav-links a:hover { color: #f5c842; text-decoration: none; }
+
+/* Hero */
+.hero { background: linear-gradient(135deg, #0a1628 0%, #0d2a5e 100%); padding: 80px 32px 70px; text-align: center; border-bottom: 3px solid #c9960c; color: #fff; }
+.hero-badge { display: inline-block; background: linear-gradient(135deg, #f5c842, #c9960c); color: #0a1628; font-size: 11px; font-weight: 800; padding: 6px 16px; border-radius: 20px; letter-spacing: 0.1em; margin-bottom: 22px; text-transform: uppercase; }
+.hero h1 { font-family: Impact, Arial Black, sans-serif; font-size: 58px; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 18px; line-height: 1.05; }
+.hero h1 span { color: #f5c842; }
+.hero p.subtitle { font-size: 19px; color: #e8f0fb; opacity: 0.85; margin-bottom: 36px; max-width: 720px; margin-left: auto; margin-right: auto; }
+.btn { display: inline-block; padding: 16px 36px; font-size: 15px; font-weight: 800; cursor: pointer; border: none; border-radius: 8px; letter-spacing: 0.05em; text-transform: uppercase; font-family: inherit; transition: transform 0.15s, box-shadow 0.15s; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-decoration: none; }
+.btn-gold { background: linear-gradient(135deg, #f5c842, #c9960c); color: #0a1628; }
+.btn-ghost { background: rgba(255,255,255,0.1); color: #fff; border: 2px solid rgba(255,255,255,0.3); }
+.hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.hero-note { margin-top: 22px; font-size: 12px; color: #e8f0fb; opacity: 0.7; }
+
+/* Stats Bar */
+.stats { background: #f7f9fc; padding: 36px 32px; border-bottom: 1px solid #dde4ef; }
+.stats-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+.stat-num { font-family: Impact, Arial Black, sans-serif; font-size: 36px; color: #0d1f3c; letter-spacing: 0.02em; }
+.stat-label { font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+
+/* Founding Banner */
+.founding { background: linear-gradient(135deg, #f5c842, #c9960c); padding: 26px 32px; text-align: center; color: #0a1628; }
+.founding-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; }
+.founding-icon { font-size: 32px; }
+.founding-title { font-family: Impact, Arial Black, sans-serif; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase; }
+.founding-text { font-size: 14px; font-weight: 600; margin-top: 2px; }
+
+/* Sections */
+section { padding: 80px 32px; }
+.section-eyebrow { font-size: 11px; font-weight: 700; color: #c9960c; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; text-align: center; }
+.section-title { font-family: Impact, Arial Black, sans-serif; font-size: 40px; color: #0d1f3c; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 50px; text-align: center; }
+
+/* About / What We Do */
+.about-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card { background: #f7f9fc; border-radius: 16px; padding: 36px 28px; border: 1.5px solid #dde4ef; border-top: 4px solid #c9960c; }
+.feature-icon { font-size: 40px; margin-bottom: 14px; }
+.feature-title { font-family: Impact, Arial Black, sans-serif; font-size: 19px; color: #0d1f3c; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 10px; }
+.feature-desc { font-size: 14px; color: #4a5568; line-height: 1.65; }
+
+/* Pricing */
+.pricing-bg { background: #f7f9fc; }
+.pricing-grid { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.plan { background: #fff; border-radius: 18px; padding: 32px 28px; border: 2px solid #dde4ef; }
+.plan-pro { background: linear-gradient(135deg, #0a1628, #0d2a5e); border: 2px solid #c9960c; color: #fff; position: relative; }
+.plan-pro-badge { position: absolute; top: -1px; left: 24px; background: linear-gradient(135deg, #f5c842, #c9960c); color: #0a1628; font-size: 10px; font-weight: 800; padding: 4px 14px; border-radius: 0 0 6px 6px; letter-spacing: 0.1em; }
+.plan-name { font-family: Impact, Arial Black, sans-serif; font-size: 20px; letter-spacing: 0.04em; margin-top: 6px; }
+.plan-name-pro { color: #fff; }
+.plan-name-free { color: #0d1f3c; }
+.plan-price { display: flex; align-items: baseline; gap: 8px; margin-top: 14px; margin-bottom: 8px; flex-wrap: wrap; }
+.plan-price-num { font-family: Impact, Arial Black, sans-serif; font-size: 46px; }
+.plan-price-num-pro { color: #f5c842; }
+.plan-price-num-free { color: #0d1f3c; }
+.plan-price-period { font-size: 14px; opacity: 0.75; }
+.plan-price-strike { font-size: 13px; color: #fca5a5; text-decoration: line-through; }
+.plan-deal { font-size: 11px; color: #f5c842; font-weight: 700; margin-bottom: 18px; letter-spacing: 0.04em; }
+.plan-features { margin-top: 20px; }
+.plan-feature { display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 10px; }
+.plan-feature-pro { color: #e2e8f0; }
+.plan-feature-free { color: #374151; }
+.plan-check-pro { color: #f5c842; font-weight: 700; }
+.plan-check-free { color: #047857; font-weight: 700; }
+.plan-btn { display: block; width: 100%; margin-top: 20px; text-align: center; }
+.plan-btn-free { background: #fff; color: #0d1f3c; border: 1.5px solid #0d1f3c; padding: 13px 0; font-size: 13px; font-weight: 800; cursor: pointer; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em; font-family: inherit; }
+.plan-btn-pro { background: linear-gradient(135deg, #f5c842, #c9960c); color: #0a1628; border: none; padding: 14px 0; font-size: 14px; font-weight: 800; cursor: pointer; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em; font-family: inherit; }
+.plan-footnote { text-align: center; font-size: 10px; color: rgba(255,255,255,0.6); margin-top: 10px; }
+
+/* Waitlist Section */
+.waitlist { background: linear-gradient(135deg, #0a1628, #0d2a5e); color: #fff; text-align: center; border-top: 3px solid #c9960c; border-bottom: 3px solid #c9960c; }
+.waitlist h2 { font-family: Impact, Arial Black, sans-serif; font-size: 38px; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 14px; }
+.waitlist h2 span { color: #f5c842; }
+.waitlist p { font-size: 16px; color: #e8f0fb; opacity: 0.85; max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+.waitlist-form { max-width: 500px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: wrap; }
+.waitlist-input { flex: 1; min-width: 240px; padding: 14px 18px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; font-size: 15px; font-family: inherit; }
+.waitlist-input::placeholder { color: rgba(255,255,255,0.5); }
+.waitlist-input:focus { outline: none; border-color: #f5c842; background: rgba(255,255,255,0.15); }
+.waitlist-success { display: none; background: rgba(16, 185, 129, 0.2); border: 2px solid #10b981; border-radius: 12px; padding: 18px 24px; max-width: 500px; margin: 0 auto; color: #fff; }
+.waitlist-success.show { display: block; }
+
+/* For Schools */
+.for-schools { background: #fff; text-align: center; }
+.for-schools-inner { max-width: 700px; margin: 0 auto; }
+.for-schools-icon { font-size: 48px; margin-bottom: 18px; }
+
+/* Legal Disclaimer */
+.legal { background: #fef2f2; border-top: 2px solid rgba(220, 38, 38, 0.3); padding: 40px 32px; }
+.legal-inner { max-width: 850px; margin: 0 auto; }
+.legal-row { display: flex; gap: 14px; align-items: flex-start; }
+.legal-icon { font-size: 28px; flex-shrink: 0; }
+.legal-title { font-family: Impact, Arial Black, sans-serif; font-size: 18px; color: #991b1b; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 8px; }
+.legal-text { font-size: 13px; color: #7f1d1d; line-height: 1.7; }
+
+/* Footer */
+footer { background: #0a1628; padding: 48px 32px 30px; border-top: 3px solid #c9960c; color: #94a3b8; }
+.footer-grid { max-width: 1000px; margin: 0 auto 30px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.footer-brand-name { font-family: Impact, Arial Black, sans-serif; font-size: 20px; letter-spacing: 0.06em; color: #fff; }
+.footer-brand-name span { color: #f5c842; }
+.footer-tag { font-size: 13px; color: #94a3b8; max-width: 280px; line-height: 1.6; }
+.footer-heading { font-size: 11px; font-weight: 800; color: #f5c842; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+.footer-link { display: block; color: #94a3b8; font-size: 13px; padding: 5px 0; cursor: pointer; background: none; border: none; text-align: left; font-family: inherit; }
+.footer-link:hover { color: #fff; text-decoration: underline; }
+.footer-bottom { text-align: center; font-size: 11px; color: #64748b; max-width: 1000px; margin: 0 auto; }
+
+/* Modal */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 100; padding: 20px; overflow-y: auto; }
+.modal-overlay.show { display: flex; align-items: flex-start; justify-content: center; }
+.modal { background: #fff; border-radius: 18px; max-width: 800px; width: 100%; margin: 30px 0; box-shadow: 0 32px 80px rgba(0,0,0,0.4); overflow: hidden; }
+.modal-header { background: linear-gradient(135deg, #0a1628, #0d2040); padding: 22px 28px; border-bottom: 3px solid #c9960c; display: flex; justify-content: space-between; align-items: center; }
+.modal-title { font-family: Impact, Arial Black, sans-serif; font-size: 22px; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; }
+.modal-close { background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; line-height: 1; padding: 0 8px; }
+.modal-body { padding: 32px 36px; max-height: 70vh; overflow-y: auto; }
+.modal-body h3 { color: #0d1f3c; margin-top: 22px; margin-bottom: 10px; font-size: 17px; }
+.modal-body h3:first-child { margin-top: 0; }
+.modal-body p { margin-bottom: 14px; font-size: 14px; color: #374151; line-height: 1.75; }
+.modal-body ul { margin-left: 24px; margin-bottom: 14px; }
+.modal-body li { font-size: 14px; color: #374151; margin-bottom: 6px; line-height: 1.7; }
+.modal-body .alert-box { background: #fef2f2; border: 2px solid rgba(220, 38, 38, 0.3); border-radius: 10px; padding: 16px 20px; margin: 14px 0; }
+.modal-body .alert-box p { color: #7f1d1d; margin-bottom: 10px; }
+.modal-body .alert-box p:last-child { margin-bottom: 0; }
+.modal-body .alert-title { font-weight: 700; color: #991b1b; font-size: 14px; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav { padding: 0 16px; flex-wrap: wrap; height: auto; padding: 12px 16px; }
+  .nav-links a { padding: 6px 8px; font-size: 11px; }
+  .hero { padding: 50px 20px; }
+  .hero h1 { font-size: 36px; }
+  .hero p.subtitle { font-size: 16px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .stat-num { font-size: 28px; }
+  section { padding: 50px 20px; }
+  .section-title { font-size: 28px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .waitlist h2 { font-size: 26px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+  .modal-body { padding: 22px 24px; }
+  .modal-title { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <svg width="42" height="42" viewBox="0 0 100 100">
+      <defs>
+        <linearGradient id="gG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f5c842"/><stop offset="100%" stop-color="#c9960c"/></linearGradient>
+        <linearGradient id="bG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#1a4fd6"/></linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="47" fill="url(#bG)" stroke="url(#gG)" stroke-width="3.5"/>
+      <text x="14" y="68" font-family="Impact,Arial Black,sans-serif" font-size="54" font-weight="900" fill="white">C</text>
+      <text x="46" y="68" font-family="Impact,Arial Black,sans-serif" font-size="54" font-weight="900" fill="url(#gG)">D</text>
+      <polygon points="55,18 44,50 53,50 42,82 64,44 54,44 65,18" fill="url(#gG)" opacity="0.9"/>
+    </svg>
+    <div class="nav-brand-text">
+      <div class="nav-brand-name">COACH<span>DRAFT</span></div>
+      <div class="nav-tagline">DRAFT YOUR FUTURE.</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#waitlist">Join Waitlist</a>
+    <a href="mailto:hello@coachdraftapp.com">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🚀 Launching Soon · NJ & NY Coaches</div>
+  <h1>The #1 Platform For<br><span>High School Coaching Jobs</span></h1>
+  <p class="subtitle">CoachDraft connects qualified coaches with high schools actively hiring in New Jersey and New York. Build your profile, get discovered, and land your next coaching role.</p>
+  <div class="hero-buttons">
+    <a href="#waitlist" class="btn btn-gold">🎁 Join Waitlist — Free</a>
+    <a href="#pricing" class="btn btn-ghost">View Pricing</a>
+  </div>
+  <div class="hero-note">Launching with 30-day free trial · First 50 sign-ups get founding pricing</div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-grid">
+    <div><div class="stat-num">600+</div><div class="stat-label">NJ High Schools</div></div>
+    <div><div class="stat-num">4,700+</div><div class="stat-label">NY High Schools</div></div>
+    <div><div class="stat-num">30K+</div><div class="stat-label">Coaching Positions</div></div>
+    <div><div class="stat-num">$9.99</div><div class="stat-label">Per Month</div></div>
+  </div>
+</div>
+
+<!-- FOUNDING BANNER -->
+<div class="founding">
+  <div class="founding-inner">
+    <div class="founding-icon">🏆</div>
+    <div>
+      <div class="founding-title">Founding Coach Offer</div>
+      <div class="founding-text">First 50 coaches get <strong>$4.99/month for the first year</strong> (50% off!) + permanent badge</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<section id="about">
+  <div class="container">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-title">Built For Coaches & Schools</h2>
+    <div class="about-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <div class="feature-title">Build Your Profile</div>
+        <div class="feature-desc">Upload your photo, resume, achievements, and references. Show schools exactly why you're the right coach for their team.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👁</div>
+        <div class="feature-title">Get Discovered</div>
+        <div class="feature-desc">Athletic Directors browse profiles and reach out for interviews. Track who's viewing your profile in real-time analytics.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-title">Land The Job</div>
+        <div class="feature-desc">Use AI Cover Letter Generator and Interview Prep tools to ace every application and start your new coaching role.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing-bg">
+  <div class="container">
+    <div class="section-eyebrow">Simple Pricing</div>
+    <h2 class="section-title">Pick Your Plan</h2>
+    <div class="pricing-grid">
+      <!-- Free -->
+      <div class="plan">
+        <div class="plan-name plan-name-free">FREE</div>
+        <div class="plan-price">
+          <div class="plan-price-num plan-price-num-free">$0</div>
+          <div class="plan-price-period">/month</div>
+        </div>
+        <div class="plan-features">
+          <div class="plan-feature plan-feature-free"><span class="plan-check-free">✓</span>Browse all job listings</div>
+          <div class="plan-feature plan-feature-free"><span class="plan-check-free">✓</span>Basic profile (name & email)</div>
+          <div class="plan-feature plan-feature-free"><span class="plan-check-free">✓</span>View school posts</div>
+        </div>
+        <a href="#waitlist" class="plan-btn plan-btn-free" style="text-decoration:none;display:block;">Join Waitlist</a>
+      </div>
+      <!-- Pro -->
+      <div class="plan plan-pro">
+        <div class="plan-pro-badge">30-DAY FREE TRIAL</div>
+        <div class="plan-name plan-name-pro">PRO</div>
+        <div class="plan-price">
+          <div class="plan-price-num plan-price-num-pro">$4.99</div>
+          <div class="plan-price-period">/month, 1st year</div>
+          <div class="plan-price-strike">$9.99</div>
+        </div>
+        <div class="plan-deal">🏆 FOUNDING RATE — 50% OFF FIRST YEAR</div>
+        <div class="plan-features">
+          <div class="plan-feature plan-feature-pro"><span class="plan-check-pro">✓</span>Full coaching profile with resume</div>
+          <div class="plan-feature plan-feature-pro"><span class="plan-check-pro">✓</span>AI Cover Letter Generator</div>
+          <div class="plan-feature plan-feature-pro"><span class="plan-check-pro">✓</span>AI Interview Prep</div>
+          <div class="plan-feature plan-feature-pro"><span class="plan-check-pro">✓</span>Apply to unlimited jobs</div>
+          <div class="plan-feature plan-feature-pro"><span class="plan-check-pro">✓</span>Profile view analytics</div>
+          <div class="plan-feature plan-feature-pro"><span class="plan-check-pro">✓</span>Coaches Portal access</div>
+        </div>
+        <a href="#waitlist" class="plan-btn plan-btn-pro" style="text-decoration:none;display:block;">🎁 Claim Founding Spot</a>
+        <div class="plan-footnote">After year 1: $9.99/mo · Cancel anytime</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section id="waitlist" class="waitlist">
+  <div class="container">
+    <h2>Be Among The <span>First 50</span></h2>
+    <p>Join our waitlist for early access and lock in $4.99/month for your first year. We'll email you the moment CoachDraft launches.</p>
+    <form class="waitlist-form" onsubmit="joinWaitlist(event)">
+      <input type="email" class="waitlist-input" placeholder="Your email address" required id="waitlistEmail">
+      <button type="submit" class="btn btn-gold">Join Waitlist</button>
+    </form>
+    <div class="waitlist-success" id="waitlistSuccess">
+      <div style="font-size:32px;margin-bottom:8px;">✅</div>
+      <div style="font-weight:800;font-size:18px;margin-bottom:6px;color:#f5c842;">You're on the list!</div>
+      <div style="font-size:14px;">We'll email you at <strong id="successEmail"></strong> as soon as CoachDraft launches. 🚀</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR SCHOOLS -->
+<section class="for-schools">
+  <div class="container for-schools-inner">
+    <div class="for-schools-icon">🏫</div>
+    <div class="section-eyebrow">Athletic Directors</div>
+    <h2 class="section-title" style="margin-bottom:18px;">Hiring A Coach?</h2>
+    <p style="font-size:16px;color:#4a5568;line-height:1.7;margin-bottom:28px;">Post your coaching job listings on CoachDraft <strong>completely FREE</strong>. Reach hundreds of qualified high school coaches in NJ and NY actively looking for work. No fees, no commissions — ever.</p>
+    <a href="mailto:hello@coachdraftapp.com?subject=School%20Inquiry%20-%20CoachDraft&body=Hi%2C%20I'm%20interested%20in%20learning%20more%20about%20posting%20coaching%20jobs%20on%20CoachDraft." class="btn btn-gold">📧 Contact Us for Early Access</a>
+  </div>
+</section>
+
+<!-- LEGAL DISCLAIMER -->
+<section class="legal" style="padding: 40px 32px;">
+  <div class="legal-inner">
+    <div class="legal-row">
+      <div class="legal-icon">⚠️</div>
+      <div>
+        <div class="legal-title">Important Disclaimer</div>
+        <div class="legal-text">
+          <strong>CoachDraft is a job listing platform only.</strong> Subscribing does NOT guarantee employment or interviews. Schools are 100% responsible for performing all required background checks, certification verifications, fingerprinting, child abuse clearances, and reference verifications before hiring any coach. CoachDraft does not screen, verify, or endorse any user information.
+          <br><br>
+          By using CoachDraft, you agree to our <button onclick="openModal('terms')" style="background:none;border:none;color:#dc2626;cursor:pointer;text-decoration:underline;font-family:inherit;padding:0;font-weight:700;">Terms of Service</button> and <button onclick="openModal('privacy')" style="background:none;border:none;color:#dc2626;cursor:pointer;text-decoration:underline;font-family:inherit;padding:0;font-weight:700;">Privacy Policy</button>.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <svg width="34" height="34" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="gG2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f5c842"/><stop offset="100%" stop-color="#c9960c"/></linearGradient>
+            <linearGradient id="bG2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4f8ef7"/><stop offset="100%" stop-color="#1a4fd6"/></linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="47" fill="url(#bG2)" stroke="url(#gG2)" stroke-width="3.5"/>
+          <text x="14" y="68" font-family="Impact,Arial Black,sans-serif" font-size="54" font-weight="900" fill="white">C</text>
+          <text x="46" y="68" font-family="Impact,Arial Black,sans-serif" font-size="54" font-weight="900" fill="url(#gG2)">D</text>
+        </svg>
+        <div class="footer-brand-name">COACH<span>DRAFT</span></div>
+      </div>
+      <div class="footer-tag">The #1 platform for high school coaching jobs in NJ and NY. Built by coaches, for coaches. Launching soon.</div>
+    </div>
+    <div>
+      <div class="footer-heading">Company</div>
+      <a href="#about" class="footer-link">About Us</a>
+      <a href="#pricing" class="footer-link">Pricing</a>
+      <a href="#waitlist" class="footer-link">Join Waitlist</a>
+      <a href="mailto:hello@coachdraftapp.com" class="footer-link">Contact Us</a>
+    </div>
+    <div>
+      <div class="footer-heading">Legal</div>
+      <button onclick="openModal('terms')" class="footer-link">Terms of Service</button>
+      <button onclick="openModal('privacy')" class="footer-link">Privacy Policy</button>
+      <button onclick="openModal('refund')" class="footer-link">Refund Policy</button>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 CoachDraft. All rights reserved. · <a href="mailto:hello@coachdraftapp.com" style="color:#94a3b8;">hello@coachdraftapp.com</a>
+  </div>
+</footer>
+
+<!-- TERMS MODAL -->
+<div class="modal-overlay" id="modal-terms" onclick="closeModal(event,'terms')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title">Terms of Service</div>
+      <button class="modal-close" onclick="closeModal(null,'terms')">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:#64748b;font-size:12px;">Last updated: April 28, 2026</p>
+      <p>By using CoachDraft (coachdraftapp.com), you agree to these Terms of Service.</p>
+
+      <h3>1. Service Description</h3>
+      <p>CoachDraft is an online platform that connects high school coaches with high schools posting coaching positions in the United States, currently focused on New Jersey and New York.</p>
+
+      <h3>2. Account Eligibility</h3>
+      <p>You must be at least 18 years old to create an account. You agree to provide accurate, current information and keep it updated.</p>
+
+      <h3>3. Subscriptions & Billing</h3>
+      <p>CoachDraft offers a free tier and a Pro tier. The Pro tier is $9.99/month with a 30-day free trial. The first 50 sign-ups (Founding Coaches) pay $4.99/month for the first 12 months, then $9.99/month thereafter. You can cancel anytime through your account settings.</p>
+
+      <h3>4. Free Trial</h3>
+      <p>New Pro users receive a 30-day free trial. We require a valid payment method to start the trial. You will not be charged during the trial period. If you cancel before the trial ends, you will not be charged.</p>
+
+      <h3>5. Refunds</h3>
+      <p>Subscription fees are non-refundable except as required by law. If you cancel during your free trial, you will not be charged. For billing disputes, contact us at hello@coachdraftapp.com within 14 days of the charge.</p>
+
+      <h3>6. School Job Postings</h3>
+      <p>Schools may post job listings free of charge. Schools must provide accurate information. CoachDraft reserves the right to remove listings that violate our policies.</p>
+
+      <h3>7. User Conduct</h3>
+      <p>You agree not to post false information, harass other users, use the service for spam, scrape data, or attempt unauthorized access.</p>
+
+      <h3>8. Disclaimers — IMPORTANT</h3>
+      <div class="alert-box">
+        <p class="alert-title">⚠️ PLEASE READ CAREFULLY:</p>
+        <p><strong>CoachDraft is a job listing and networking platform only.</strong> We are NOT an employment agency, recruiter, or staffing service. We do not employ coaches, do not screen schools or coaches, and do not guarantee any specific outcome.</p>
+        <p><strong>SIGNING UP FOR COACHDRAFT DOES NOT GUARANTEE EMPLOYMENT.</strong> Subscribing to our Pro service grants you access to platform features but provides NO guarantee, promise, or warranty of employment, interviews, or any specific outcome.</p>
+        <p><strong>SCHOOLS ARE SOLELY RESPONSIBLE FOR HIRING DECISIONS.</strong> All hiring decisions are made entirely by individual schools. CoachDraft has no involvement in, control over, or responsibility for hiring decisions.</p>
+        <p><strong>BACKGROUND CHECKS ARE THE SCHOOL'S RESPONSIBILITY.</strong> Schools must conduct all necessary background checks, criminal history reviews, fingerprinting, certification verifications, drug testing, child abuse clearances, and any other due diligence required by their state, district, or institution before hiring any coach.</p>
+        <p><strong>USER-GENERATED CONTENT.</strong> All profile information is provided by users themselves. CoachDraft does NOT verify, endorse, or vouch for any user-provided information.</p>
+      </div>
+
+      <h3>9. Limitation of Liability</h3>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, COACHDRAFT, ITS OWNER(S), EMPLOYEES, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY hiring decisions or employment outcomes, conduct of any user, damages arising from coach-school interactions, failure of schools to perform background checks, misrepresentation by any user, workplace incidents, accidents, or harm of any kind, or indirect, incidental, consequential, or punitive damages. Our total cumulative liability shall not exceed $100 or the amount you paid us in the past 12 months, whichever is less.</p>
+
+      <h3>10. Indemnification</h3>
+      <p>You agree to indemnify, defend, and hold harmless CoachDraft from any claims, damages, losses, or expenses arising from your use of the service, your violation of these Terms, false information you provide, your interactions with other users, or hiring decisions made by your school.</p>
+
+      <h3>11. Governing Law</h3>
+      <p>These Terms are governed by the laws of the State of New Jersey, without regard to conflict of law principles. Disputes shall be resolved through binding arbitration.</p>
+
+      <h3>12. Changes to Terms</h3>
+      <p>We may update these terms at any time. Continued use after changes constitutes acceptance. Significant changes will be communicated by email.</p>
+
+      <h3>13. Contact</h3>
+      <p>Email questions to <a href="mailto:hello@coachdraftapp.com"><strong>hello@coachdraftapp.com</strong></a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRIVACY MODAL -->
+<div class="modal-overlay" id="modal-privacy" onclick="closeModal(event,'privacy')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title">Privacy Policy</div>
+      <button class="modal-close" onclick="closeModal(null,'privacy')">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:#64748b;font-size:12px;">Last updated: April 28, 2026</p>
+      <p>CoachDraft ("we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use coachdraftapp.com.</p>
+
+      <h3>1. Information We Collect</h3>
+      <p>We collect information you provide directly: name, email address, phone number, gender, coaching experience, sports coached, biography, references, profile photo, resume, and payment information for Pro subscribers.</p>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>We use your information to: provide and maintain our service, process payments through Stripe, allow schools to view coach profiles, send service-related emails, respond to support requests, and improve our platform.</p>
+
+      <h3>3. Information Sharing</h3>
+      <p>We do not sell your personal information. We share information with schools who have posted jobs (limited to your public profile), payment processors (Stripe) for billing, and service providers who help us operate. We may disclose information if required by law.</p>
+
+      <h3>4. Data Security</h3>
+      <p>We use industry-standard security measures including encryption, secure servers, and access controls. Payment information is processed by Stripe and never stored on our servers.</p>
+
+      <h3>5. Your Rights</h3>
+      <p>You have the right to access your personal data, update or delete your account at any time, opt out of marketing emails, request a copy of your data, and request deletion of your data. Contact hello@coachdraftapp.com to exercise these rights.</p>
+
+      <h3>6. Cookies</h3>
+      <p>We use cookies and similar technologies for authentication, preferences, and analytics. You can control cookies through your browser settings.</p>
+
+      <h3>7. Children's Privacy</h3>
+      <p>CoachDraft is not intended for users under 18. We do not knowingly collect data from minors.</p>
+
+      <h3>8. Changes to This Policy</h3>
+      <p>We may update this policy. We will notify users of significant changes via email.</p>
+
+      <h3>9. Contact Us</h3>
+      <p>Email <a href="mailto:hello@coachdraftapp.com"><strong>hello@coachdraftapp.com</strong></a> for questions.</p>
+    </div>
+  </div>
+</div>
+
+<!-- REFUND MODAL -->
+<div class="modal-overlay" id="modal-refund" onclick="closeModal(event,'refund')">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title">Refund & Cancellation Policy</div>
+      <button class="modal-close" onclick="closeModal(null,'refund')">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:#64748b;font-size:12px;">Last updated: April 28, 2026</p>
+
+      <h3>Free Trial</h3>
+      <p>All new Pro subscribers receive a <strong>30-day free trial</strong>. You will not be charged during the trial period. If you cancel before the trial ends, you will not be charged anything.</p>
+
+      <h3>Cancellation</h3>
+      <p>You may cancel your CoachDraft Pro subscription at any time through your account settings. After cancellation, you will retain Pro access through the end of your current billing period. No further charges will be made.</p>
+
+      <h3>Refunds</h3>
+      <p>Subscription fees are non-refundable except as required by law. We do not provide pro-rated refunds for partial months of service.</p>
+      <p><strong>Exception:</strong> If you were charged due to a billing error or technical issue with our platform, contact us at hello@coachdraftapp.com within 14 days and we will issue a full refund.</p>
+
+      <h3>How to Cancel</h3>
+      <ul>
+        <li>Log in to your CoachDraft account</li>
+        <li>Go to <strong>My Account → Billing</strong></li>
+        <li>Click <strong>Cancel Subscription</strong></li>
+        <li>Confirm cancellation</li>
+      </ul>
+      <p>You'll receive a confirmation email immediately. You can re-subscribe at any time.</p>
+
+      <h3>Contact</h3>
+      <p>For refund requests or billing questions, email <a href="mailto:hello@coachdraftapp.com"><strong>hello@coachdraftapp.com</strong></a>. We respond within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(name) {
+  document.getElementById('modal-' + name).classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e, name) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('modal-' + name).classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+function joinWaitlist(e) {
+  e.preventDefault();
+  var email = document.getElementById('waitlistEmail').value;
+  document.querySelector('.waitlist-form').style.display = 'none';
+  document.getElementById('successEmail').textContent = email;
+  document.getElementById('waitlistSuccess').classList.add('show');
+
+  // In production, this would POST to your backend or email service
+  // For now it just shows the confirmation
+  console.log('Waitlist signup:', email);
+}
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Close modals on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    ['terms', 'privacy', 'refund'].forEach(n => closeModal(null, n));
+  }
+});
+</script>
+
+</body>
+</html>
