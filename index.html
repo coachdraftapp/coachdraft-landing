@@ -35,6 +35,7 @@ a:hover { text-decoration: underline; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-decoration: none; }
 .btn-gold { background: linear-gradient(135deg, #f5c842, #c9960c); color: #0a1628; }
 .btn-ghost { background: rgba(255,255,255,0.1); color: #fff; border: 2px solid rgba(255,255,255,0.3); }
+.btn-school-hero { background: linear-gradient(135deg, #4f8ef7, #1a4fd6); color: #fff; }
 .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .hero-note { margin-top: 22px; font-size: 12px; color: #e8f0fb; opacity: 0.7; }
 
@@ -102,6 +103,19 @@ section { padding: 80px 32px; }
 .waitlist-success { display: none; background: rgba(16, 185, 129, 0.2); border: 2px solid #10b981; border-radius: 12px; padding: 18px 24px; max-width: 500px; margin: 0 auto; color: #fff; }
 .waitlist-success.show { display: block; }
 
+/* Waitlist Cards (Coach vs School) */
+.waitlist-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 800px; margin: 0 auto; }
+.wl-card { background: rgba(255,255,255,0.06); border: 2px solid rgba(255,255,255,0.15); border-radius: 18px; padding: 36px 30px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.15s, border-color 0.15s; }
+.wl-card:hover { transform: translateY(-4px); border-color: #c9960c; }
+.wl-card-icon { font-size: 48px; margin-bottom: 16px; }
+.wl-card-title { font-family: Impact, Arial Black, sans-serif; font-size: 24px; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 12px; }
+.wl-card-desc { font-size: 14px; color: #e8f0fb; opacity: 0.8; line-height: 1.6; margin-bottom: 24px; flex-grow: 1; }
+.wl-card-btn { display: inline-block; width: 100%; padding: 15px 24px; font-size: 15px; font-weight: 800; cursor: pointer; border: none; border-radius: 10px; letter-spacing: 0.04em; text-transform: uppercase; font-family: inherit; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; box-sizing: border-box; }
+.wl-card-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-decoration: none; }
+.wl-btn-coach { background: linear-gradient(135deg, #f5c842, #c9960c); color: #0a1628; }
+.wl-btn-school { background: linear-gradient(135deg, #4f8ef7, #1a4fd6); color: #fff; }
+.wl-card-note { margin-top: 14px; font-size: 12px; color: #e8f0fb; opacity: 0.65; }
+
 /* For Schools */
 .for-schools { background: #fff; text-align: center; }
 .for-schools-inner { max-width: 700px; margin: 0 auto; }
@@ -159,6 +173,7 @@ footer { background: #0a1628; padding: 48px 32px 30px; border-top: 3px solid #c9
   .about-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .waitlist h2 { font-size: 26px; }
+  .waitlist-cards { grid-template-columns: 1fr; gap: 18px; }
   .footer-grid { grid-template-columns: 1fr; gap: 20px; }
   .modal-body { padding: 22px 24px; }
   .modal-title { font-size: 18px; }
@@ -199,10 +214,10 @@ footer { background: #0a1628; padding: 48px 32px 30px; border-top: 3px solid #c9
   <h1>The #1 Platform For<br><span>High School Coaching Jobs</span></h1>
   <p class="subtitle">CoachDraft connects qualified coaches with high schools actively hiring in New Jersey and New York. Build your profile, get discovered, and land your next coaching role.</p>
   <div class="hero-buttons">
-    <a href="#waitlist" class="btn btn-gold">🎁 Join Waitlist — Free</a>
-    <a href="#pricing" class="btn btn-ghost">View Pricing</a>
+    <a href="https://eepurl.com/TNzgKMbFfb" target="_blank" rel="noopener" class="btn btn-gold">🏃 Coaches — Join Waitlist</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSenksnXlKENVAG4_2hYQgpeCI2Sjrv32em80liwgUK5lbKe5Q/viewform" target="_blank" rel="noopener" class="btn btn-school-hero">🏫 Schools — Join Waitlist</a>
   </div>
-  <div class="hero-note">Launching with 30-day free trial · First 50 sign-ups get founding pricing</div>
+  <div class="hero-note">Launching with 30-day free trial · First 50 coaches get founding pricing</div>
 </div>
 
 <!-- STATS -->
@@ -299,16 +314,25 @@ footer { background: #0a1628; padding: 48px 32px 30px; border-top: 3px solid #c9
 <!-- WAITLIST -->
 <section id="waitlist" class="waitlist">
   <div class="container">
-    <h2>Be Among The <span>First 50</span></h2>
-    <p>Join our waitlist for early access and lock in $4.99/month for your first year. We'll email you the moment CoachDraft launches.</p>
-    <form class="waitlist-form" onsubmit="joinWaitlist(event)">
-      <input type="email" class="waitlist-input" placeholder="Your email address" required id="waitlistEmail">
-      <button type="submit" class="btn btn-gold">Join Waitlist</button>
-    </form>
-    <div class="waitlist-success" id="waitlistSuccess">
-      <div style="font-size:32px;margin-bottom:8px;">✅</div>
-      <div style="font-weight:800;font-size:18px;margin-bottom:6px;color:#f5c842;">You're on the list!</div>
-      <div style="font-size:14px;">We'll email you at <strong id="successEmail"></strong> as soon as CoachDraft launches. 🚀</div>
+    <h2>Join The <span>Waitlist</span></h2>
+    <p>Be the first to know when CoachDraft launches. Pick your path below — whether you're a coach looking for a job or a school looking to hire.</p>
+    <div class="waitlist-cards">
+      <!-- Coaches Card -->
+      <div class="wl-card">
+        <div class="wl-card-icon">🏃</div>
+        <div class="wl-card-title">I'm A Coach</div>
+        <div class="wl-card-desc">Looking for a high school coaching job in NJ or NY? Join the waitlist and lock in founding pricing — $4.99/month for your first year.</div>
+        <a href="https://eepurl.com/TNzgKMbFfb" target="_blank" rel="noopener" class="wl-card-btn wl-btn-coach">🎁 Join Coach Waitlist</a>
+        <div class="wl-card-note">First 50 coaches get founding pricing</div>
+      </div>
+      <!-- Schools Card -->
+      <div class="wl-card">
+        <div class="wl-card-icon">🏫</div>
+        <div class="wl-card-title">I'm A School</div>
+        <div class="wl-card-desc">Athletic Director or administrator hiring coaches? Get early access to post your coaching jobs — completely free, no fees ever.</div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenksnXlKENVAG4_2hYQgpeCI2Sjrv32em80liwgUK5lbKe5Q/viewform" target="_blank" rel="noopener" class="wl-card-btn wl-btn-school">🏫 Join School Waitlist</a>
+        <div class="wl-card-note">Always free for schools to post jobs</div>
+      </div>
     </div>
   </div>
 </section>
@@ -320,7 +344,7 @@ footer { background: #0a1628; padding: 48px 32px 30px; border-top: 3px solid #c9
     <div class="section-eyebrow">Athletic Directors</div>
     <h2 class="section-title" style="margin-bottom:18px;">Hiring A Coach?</h2>
     <p style="font-size:16px;color:#4a5568;line-height:1.7;margin-bottom:28px;">Post your coaching job listings on CoachDraft <strong>completely FREE</strong>. Reach hundreds of qualified high school coaches in NJ and NY actively looking for work. No fees, no commissions — ever.</p>
-    <a href="mailto:hello@coachdraftapp.com?subject=School%20Inquiry%20-%20CoachDraft&body=Hi%2C%20I'm%20interested%20in%20learning%20more%20about%20posting%20coaching%20jobs%20on%20CoachDraft." class="btn btn-gold">📧 Contact Us for Early Access</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSenksnXlKENVAG4_2hYQgpeCI2Sjrv32em80liwgUK5lbKe5Q/viewform" target="_blank" rel="noopener" class="btn btn-gold">🏫 Join School Waitlist</a>
   </div>
 </section>
 
@@ -523,17 +547,6 @@ function closeModal(e, name) {
   if (e && e.target !== e.currentTarget) return;
   document.getElementById('modal-' + name).classList.remove('show');
   document.body.style.overflow = 'auto';
-}
-function joinWaitlist(e) {
-  e.preventDefault();
-  var email = document.getElementById('waitlistEmail').value;
-  document.querySelector('.waitlist-form').style.display = 'none';
-  document.getElementById('successEmail').textContent = email;
-  document.getElementById('waitlistSuccess').classList.add('show');
-
-  // In production, this would POST to your backend or email service
-  // For now it just shows the confirmation
-  console.log('Waitlist signup:', email);
 }
 
 // Smooth scroll for nav links
